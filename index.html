@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Presence, Not Presents | Aunt Shelly</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="A homepage idea for Aunt Shelly's picture book Presence, Not Presents. Made by Sparsh Saini. Not her official site.">
+<meta property="og:title" content="Presence, Not Presents: a homepage idea for Aunt Shelly">
+<meta property="og:description" content="A homepage idea made by Sparsh Saini for Shelly Kolodziejczyk. Not her official site.">
+<meta property="og:image" content="https://sparshsainied-prog.github.io/shellykolodziejczyk/img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1d1b2a; --ink-soft:#4b4a5c; --pink:#f1a0a7; --pink-d:#e8707f; --pink-l:#fde8ea;
+  --coral:#ee7a64; --blue:#2f6fb0; --sky:#bcdcf2; --pop:#fbe97a; --glow:#fbe0b0; --green:#2e8a6c;
+  --sans:"Quicksand",system-ui,sans-serif; --hand:"Amatic SC","Quicksand",cursive;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--ink);font-family:var(--sans);font-weight:500;font-size:17px;line-height:1.55;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--sans);font-weight:700;font-style:italic;line-height:1.12;margin:0;letter-spacing:0}
+.hand{font-family:var(--hand);font-weight:700;font-style:normal;letter-spacing:.02em}
+
+/* top strip */
+.strip{background:var(--pop);border-bottom:2.5px solid var(--ink);padding:9px 64px 9px 16px;font-size:13px;line-height:1.35;font-weight:700}
+
+/* stamp nav */
+.stamp-btn{position:fixed;top:10px;right:10px;z-index:50;width:44px;height:52px;padding:0;border:0;background:none;cursor:pointer;transform:rotate(4deg);transition:transform .2s}
+.stamp-btn:hover,.stamp-btn[aria-expanded="true"]{transform:rotate(-3deg) scale(1.06)}
+.stamp-btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.stamp-btn svg{display:block;filter:drop-shadow(0 1.5px 0 rgba(29,27,42,.35))}
+.card-menu{position:fixed;z-index:49;top:68px;right:12px;width:min(300px,calc(100vw - 24px));background:#fff;border:2.5px solid var(--ink);border-radius:6px 10px 7px 9px;padding:18px 20px 16px;transform:rotate(1.2deg);box-shadow:0 10px 0 -6px rgba(29,27,42,.12)}
+.card-menu[hidden]{display:none}
+.card-menu .hand{font-size:26px;margin:0 0 4px;color:var(--pink-d)}
+.card-menu a{display:block;text-decoration:none;font-weight:700;font-size:18px;padding:9px 0;border-bottom:2px dashed var(--sky)}
+.card-menu a:last-child{border-bottom:0}
+.card-menu a:hover{color:var(--pink-d)}
+
+/* hero */
+.hero{position:relative;height:360svh;--cw:min(100vw,calc((100svh - 200px)/1.4975))}
+.pin{position:sticky;top:0;height:100svh;overflow:hidden}
+.stage{position:absolute;top:0;left:calc(50% - var(--cw)/2);width:var(--cw)}
+.stage .plate{width:100%;height:auto}
+.toy{position:absolute;height:auto;will-change:transform;transform-origin:50% 50%;pointer-events:none}
+.hero-copy{position:absolute;z-index:20;left:20px;right:20px;top:calc(var(--cw)*1.4975 + 6px)}
+.kick{font-size:27px;color:var(--pink-d);margin:0 0 2px;line-height:1}
+.hero h1{font-size:25px;max-width:20em}
+.hero h1 .u{background:linear-gradient(transparent 62%,var(--pink-l) 62%,var(--pink-l) 92%,transparent 92%)}
+.hero-wash{display:none;position:absolute;z-index:0;right:-4vw;top:14vh;width:min(50vw,720px);pointer-events:none}
+.hero-wash svg{display:block;width:100%;height:auto}
+.hero-copy p{margin:8px 0 0;font-size:15px;color:var(--ink-soft);display:none}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btn{display:inline-block;font-family:var(--sans);font-weight:700;font-size:16px;text-decoration:none;color:var(--ink);background:var(--pink);border:2.5px solid var(--ink);border-radius:26px 20px 24px 18px / 20px 24px 18px 26px;padding:9px 18px 8px;transform:rotate(-1.2deg);transition:transform .18s,background .18s}
+.btn:hover{transform:rotate(1deg) translateY(-2px);background:#f6b3b9}
+.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.btn.alt{background:#fff;transform:rotate(1deg)}
+.btn.alt:hover{background:var(--pink-l)}
+
+@media (min-width:900px){
+  .hero{--cw:calc(min(90svh,740px)/1.4975)}
+  .stage{left:calc(30vw - var(--cw)/2);top:calc((100svh - var(--cw)*1.4975)/2)}
+  .hero-copy{left:54vw;right:auto;width:min(38vw,560px);top:50%;transform:translateY(-50%)}
+  .kick{font-size:38px}
+  .hero-wash{display:block}
+  .hero h1{font-size:clamp(34px,3.6vw,54px)}
+  .hero-copy p{display:block;font-size:18px}
+  .btns{margin-top:22px}
+}
+
+/* sections */
+section{position:relative;padding:72px 20px}
+.wrap{max-width:1040px;margin:0 auto;position:relative}
+h2{font-size:clamp(30px,5vw,46px);margin-bottom:14px}
+.wash{position:absolute;z-index:0;pointer-events:none}
+.wash svg{display:block;width:100%;height:auto}
+
+/* the book */
+.book .wrap{display:grid;gap:30px;align-items:center}
+.book-cover{position:relative;width:min(300px,76%);margin:0 auto}
+.book-cover .wash{inset:-14% -22% -8% -26%}
+.book-cover img{position:relative;z-index:1;transform:rotate(-2.2deg);border:2px solid var(--ink);border-radius:3px}
+.book-text{position:relative;z-index:1}
+.credit{font-weight:400;font-size:15px;color:var(--ink-soft);margin:14px 0 0}
+.book-text p{margin:0}
+@media (min-width:800px){.book .wrap{grid-template-columns:5fr 6fr;gap:70px}.book-cover{width:min(340px,100%)}}
+
+/* shelf on a string of popcorn lights */
+.shelf{background:linear-gradient(#fff,var(--pink-l) 18%,var(--pink-l) 82%,#fff)}
+.shelf-head{max-width:620px}
+.shelf-head p{margin:0}
+.string{position:relative;margin-top:44px}
+.string::before{content:"";display:block;height:66px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='66' viewBox='0 0 360 66'%3E%3Cpath d='M-4 22 C40 40 80 8 126 26 S214 44 250 22 S320 6 364 24' fill='none' stroke='%23fbe0b0' stroke-width='13' stroke-linecap='round'/%3E%3Cpath d='M-4 22 C40 40 80 8 126 26 S214 44 250 22 S320 6 364 24' fill='none' stroke='%231d1b2a' stroke-width='2.6' stroke-linecap='round'/%3E%3Cg stroke='%231d1b2a' stroke-width='2.6' stroke-linejoin='round' fill='%23fbe97a'%3E%3Cpath d='M58 30 c-7 -3 -9 -12 -2 -15 c3 -5 11 -4 13 1 c7 0 10 8 5 12 c-1 6 -9 8 -16 2z'/%3E%3Cpath d='M174 33 c-8 -2 -10 -12 -3 -15 c2 -6 11 -5 13 0 c8 0 10 9 5 13 c-2 6 -9 7 -15 2z'/%3E%3Cpath d='M296 20 c-7 -3 -8 -12 -2 -14 c3 -5 11 -4 12 1 c7 1 9 8 5 12 c-2 6 -9 7 -15 1z'/%3E%3C/g%3E%3C/svg%3E") repeat-x 0 0/360px 66px}
+.hang{display:grid;grid-template-columns:1fr 1fr;gap:34px 18px;margin-top:-26px;padding:0 4px}
+.hang figure{margin:0;transform-origin:50% 0;text-align:center}
+.hang figure:nth-child(1){transform:rotate(-2.4deg)}
+.hang figure:nth-child(2){transform:rotate(1.8deg) translateY(14px)}
+.hang figure:nth-child(3){transform:rotate(2deg)}
+.hang figure:nth-child(4){transform:rotate(-1.6deg) translateY(10px)}
+.peg{width:16px;height:34px;margin:0 auto -12px;position:relative;z-index:2}
+.hang img{border:2px solid var(--ink);border-radius:2px;background:#fff;width:100%}
+.hang figcaption{margin-top:10px;font-weight:700;font-size:15.5px;line-height:1.25}
+.hang figcaption a{display:block;margin-top:4px;font-size:14px;color:var(--pink-d);text-underline-offset:3px}
+.hang figcaption span{display:block;margin-top:2px;font-weight:500;font-size:13.5px;color:var(--ink-soft)}
+.shelf-foot{margin-top:46px;text-align:left}
+@media (min-width:800px){.hang{grid-template-columns:repeat(4,1fr);gap:26px}.hang figure:nth-child(2){transform:rotate(1.8deg) translateY(22px)}.hang figure:nth-child(4){transform:rotate(-1.6deg) translateY(16px)}}
+
+/* about */
+.about .wrap{display:grid;gap:26px}
+.about p{margin:0 0 14px}
+.facts{margin:0;padding:0;list-style:none}
+.facts li{position:relative;padding-left:30px;margin:0 0 14px}
+.facts li::before{content:"";position:absolute;left:0;top:.35em;width:18px;height:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 20 C4 14 1 9 3.5 5 C6 1.5 10.5 2.5 12 6.5 C13.5 2.5 18 1.5 20.5 5 C23 9 20 14 12 20Z' fill='%23f1a0a7' stroke='%231d1b2a' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.quote{position:relative;margin:6px 0 0;padding:26px 24px 24px;background:#fff;border:2.5px solid var(--ink);border-radius:10px 6px 11px 7px;transform:rotate(-1deg)}
+.quote q{display:block;font-family:var(--sans);font-style:italic;font-weight:700;font-size:23px;line-height:1.25;quotes:none}
+.quote cite{display:block;margin-top:10px;font-style:normal;font-size:14px;color:var(--ink-soft);font-weight:500}
+@media (min-width:800px){.about .wrap{grid-template-columns:6fr 5fr;gap:64px;align-items:start}.quote{margin-top:40px}}
+
+/* snail mail */
+.snail{background:var(--pink-l)}
+.snail .wrap{display:grid;gap:34px;align-items:center}
+.postcard{position:relative;background:#fff;border:2.5px solid var(--ink);border-radius:6px 9px 7px 10px;transform:rotate(-2deg);padding:22px 20px;display:grid;grid-template-columns:1fr 1px 1fr;gap:16px;min-height:200px;max-width:460px;margin:0 auto;width:100%}
+.postcard .msg{font-family:var(--hand);font-weight:700;font-size:28px;line-height:1.05;color:var(--blue)}
+.postcard .rule{background:var(--ink);opacity:.5}
+.postcard .addr{display:flex;flex-direction:column;justify-content:flex-end;gap:14px;padding-top:56px}
+.postcard .addr i{display:block;border-bottom:2px solid var(--ink);opacity:.55;height:1px}
+.postcard .st{position:absolute;top:12px;right:14px;transform:rotate(5deg)}
+.postmark{position:absolute;top:14px;right:70px;width:74px;height:74px;opacity:.65;transform:rotate(-12deg)}
+.snail p{margin:0 0 12px}
+.tiers{font-weight:700}
+@media (min-width:800px){.snail .wrap{grid-template-columns:1fr 1fr;gap:70px}}
+
+/* events and close */
+.events .wrap{max-width:760px}
+.next{display:flex;gap:18px;align-items:flex-start;margin:22px 0 18px;padding:18px 18px 18px 16px;border:2.5px solid var(--ink);border-radius:8px 12px 7px 11px;background:#fff}
+.datebox{flex:none;width:72px;text-align:center;border:2.5px solid var(--ink);border-radius:8px;background:var(--sky);padding:6px 0 4px;transform:rotate(-3deg)}
+.datebox b{display:block;font-size:34px;line-height:1;font-family:var(--hand)}
+.datebox span{font-family:var(--hand);font-size:22px;line-height:1;display:block}
+.next h3{font-size:22px;margin-bottom:4px}
+.next p{margin:0;font-size:15.5px}
+.next .tie{color:var(--ink-soft);margin-top:6px}
+.offers{margin:0 0 20px}
+.close{text-align:center;padding-bottom:96px}
+.close .heart{width:150px;margin:0 auto 6px}
+.close .big{font-size:clamp(46px,9vw,84px);line-height:.95;color:var(--ink)}
+.close p{margin:14px auto 22px;max-width:30em}
+footer{background:var(--ink);color:#fff;padding:22px 20px;font-size:14px;text-align:center}
+footer a{color:var(--pop)}
+
+@media (prefers-reduced-motion:reduce){
+  .hero{height:auto}
+  .pin{position:relative}
+  .hero-copy{position:absolute}
+  .stamp-btn,.btn{transition:none}
+}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="strip">A homepage idea made by Sparsh Saini for Shelly Kolodziejczyk. Not her official site.</div>
+
+<button class="stamp-btn" id="stampBtn" aria-expanded="false" aria-controls="cardMenu" aria-label="Menu"><svg viewBox="0 0 44 52" width="44" height="52" aria-hidden="true"><defs><mask id="sm1"><rect width="44" height="52" fill="#fff"/><g fill="#000"><circle cx="2.0" cy="0.5" r="2.6"/><circle cx="2.0" cy="51.5" r="2.6"/><circle cx="8.7" cy="0.5" r="2.6"/><circle cx="8.7" cy="51.5" r="2.6"/><circle cx="15.3" cy="0.5" r="2.6"/><circle cx="15.3" cy="51.5" r="2.6"/><circle cx="22.0" cy="0.5" r="2.6"/><circle cx="22.0" cy="51.5" r="2.6"/><circle cx="28.7" cy="0.5" r="2.6"/><circle cx="28.7" cy="51.5" r="2.6"/><circle cx="35.3" cy="0.5" r="2.6"/><circle cx="35.3" cy="51.5" r="2.6"/><circle cx="42.0" cy="0.5" r="2.6"/><circle cx="42.0" cy="51.5" r="2.6"/><circle cx="0.5" cy="2.0" r="2.6"/><circle cx="43.5" cy="2.0" r="2.6"/><circle cx="0.5" cy="8.9" r="2.6"/><circle cx="43.5" cy="8.9" r="2.6"/><circle cx="0.5" cy="15.7" r="2.6"/><circle cx="43.5" cy="15.7" r="2.6"/><circle cx="0.5" cy="22.6" r="2.6"/><circle cx="43.5" cy="22.6" r="2.6"/><circle cx="0.5" cy="29.4" r="2.6"/><circle cx="43.5" cy="29.4" r="2.6"/><circle cx="0.5" cy="36.3" r="2.6"/><circle cx="43.5" cy="36.3" r="2.6"/><circle cx="0.5" cy="43.1" r="2.6"/><circle cx="43.5" cy="43.1" r="2.6"/><circle cx="0.5" cy="50.0" r="2.6"/><circle cx="43.5" cy="50.0" r="2.6"/></g></mask></defs><g mask="url(#sm1)"><rect width="44" height="52" fill="#f1a0a7"/><rect x="5" y="5" width="34" height="42" fill="#fff" stroke="#1d1b2a" stroke-width="1.6"/><path transform="translate(10.0,14.0)" d="M12 20 C4 14 1 9 3.5 5 C6 1.5 10.5 2.5 12 6.5 C13.5 2.5 18 1.5 20.5 5 C23 9 20 14 12 20Z" fill="#f1a0a7" stroke="#1d1b2a" stroke-width="1.8" stroke-linejoin="round"/></g></svg></button>
+<nav class="card-menu" id="cardMenu" hidden aria-label="Pages">
+  <p class="hand">Post to:</p>
+  <a href="#book">The book</a>
+  <a href="#books">The bookshelf</a>
+  <a href="#about">About Aunt Shelly</a>
+  <a href="#snail">Snail mail club</a>
+  <a href="#events">Events</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="pin">
+    <div class="stage" id="stage">
+      <img class="plate" src="img/plate.jpg" width="1200" height="1797" alt="Cover of Presence, Not Presents: a girl in a green spotted jumper with her hand on her heart, in front of a big pink watercolour heart, under a string of yellow lights.">
+      <img class="toy" src="img/toy-brush.png" alt="" aria-hidden="true" style="left:90.83%;top:91.17%;width:9.17%;z-index:8" data-cx="0.9542" data-cy="0.9490" data-sx="0.55" data-sy="0.6" data-sr="-30" data-ss="2.3" data-d="0.0" data-arc="0.05">
+      <img class="toy" src="img/toy-dryer.png" alt="" aria-hidden="true" style="left:90.39%;top:85.94%;width:9.61%;z-index:7" data-cx="0.9519" data-cy="0.8885" data-sx="0.07" data-sy="0.56" data-sr="-24" data-ss="2.2" data-d="0.07" data-arc="0.04">
+      <img class="toy" src="img/toy-lipstick.png" alt="" aria-hidden="true" style="left:81.78%;top:85.05%;width:10.06%;z-index:6" data-cx="0.8681" data-cy="0.8934" data-sx="0.46" data-sy="0.64" data-sr="28" data-ss="2.1" data-d="0.14" data-arc="0.06">
+      <img class="toy" src="img/toy-palette.png" alt="" aria-hidden="true" style="left:69.00%;top:87.35%;width:18.50%;z-index:5" data-cx="0.7825" data-cy="0.9351" data-sx="0.36" data-sy="0.8" data-sr="12" data-ss="1.7" data-d="0.21" data-arc="0.05">
+      <img class="toy" src="img/toy-top.png" alt="" aria-hidden="true" style="left:64.00%;top:79.67%;width:13.11%;z-index:4" data-cx="0.7056" data-cy="0.8401" data-sx="0.14" data-sy="0.84" data-sr="20" data-ss="2.1" data-d="0.28" data-arc="0.07">
+      <img class="toy" src="img/toy-robot.png" alt="" aria-hidden="true" style="left:43.67%;top:81.08%;width:22.17%;z-index:3" data-cx="0.5475" data-cy="0.9054" data-sx="0.3" data-sy="0.86" data-sr="-8" data-ss="1.6" data-d="0.35" data-arc="0.04">
+      <img class="toy" src="img/toy-shirt.png" alt="" aria-hidden="true" style="left:55.06%;top:63.87%;width:22.17%;z-index:2" data-cx="0.6614" data-cy="0.7250" data-sx="0.3" data-sy="0.62" data-sr="-14" data-ss="1.9" data-d="0.42" data-arc="0.08">
+      <img class="toy" src="img/toy-train.png" alt="" aria-hidden="true" style="left:75.33%;top:64.99%;width:24.67%;z-index:1" data-cx="0.8767" data-cy="0.7435" data-sx="0.58" data-sy="0.82" data-sr="9" data-ss="1.5" data-d="0.49" data-arc="0.05">
+    </div>
+    <div class="hero-copy">
+      <div class="kick hand">A picture book by Aunt Shelly</div>
+      <h1><span class="u">What truly matters during the holidays: being together.</span></h1>
+      <p>Presence, Not Presents. Written by Aunt Shelly, illustrated by Aunt Shelly and Tracy Jo.</p>
+      <div class="btns">
+        <a class="btn" href="https://amzn.to/49EDMNE" rel="noopener">Get the book</a>
+        <a class="btn alt" href="#books">More books</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="book" id="book">
+  <div class="wrap">
+    <div class="book-cover">
+      <div class="wash" aria-hidden="true"><svg viewBox="0 0 400 420"><defs><radialGradient id="wg" cx="50%" cy="48%" r="52%"><stop offset="0" stop-color="#f1a0a7" stop-opacity=".62"/><stop offset=".6" stop-color="#f1a0a7" stop-opacity=".36"/><stop offset="1" stop-color="#f1a0a7" stop-opacity="0"/></radialGradient></defs><path d="M60 80 C100 20 210 30 280 50 C350 70 390 140 372 230 C360 310 330 380 240 392 C150 404 70 380 40 300 C14 230 20 140 60 80Z" fill="url(#wg)"/><g fill="#9a8fc9" opacity=".4"><circle cx="46" cy="60" r="4"/><circle cx="30" cy="92" r="2.5"/><circle cx="378" cy="320" r="5"/><circle cx="392" cy="290" r="2.5"/><circle cx="352" cy="40" r="3"/><circle cx="60" cy="350" r="3"/></g></svg></div>
+      <img src="img/cover-presence.jpg" width="900" height="1348" alt="Presence, Not Presents, front cover">
+    </div>
+    <div class="book-text">
+      <h2>Presence, Not Presents</h2>
+      <p>A heartwarming story about what truly matters during the holidays: being together.</p>
+      <p class="credit">Written by Aunt Shelly. Illustrated by Aunt Shelly and Tracy Jo.</p>
+      <div class="btns"><a class="btn" href="https://amzn.to/49EDMNE" rel="noopener">Buy on Amazon</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="shelf" id="books">
+  <div class="wrap">
+    <div class="shelf-head">
+      <h2>The bookshelf</h2>
+      <p>Self-published with love, illustrated by hand. 11 books and counting, with a goal of 100.</p>
+    </div>
+    <div class="string">
+      <div class="hang">
+        <figure><svg class="peg" viewBox="0 0 16 34" aria-hidden="true"><path d="M3 2 H13 L12 22 L10 32 H6 L4 22Z" fill="#f1a0a7" stroke="#1d1b2a" stroke-width="2" stroke-linejoin="round"/><path d="M8 8 V22" stroke="#1d1b2a" stroke-width="1.6"/></svg><img src="img/frogs.jpg" width="560" height="790" alt="Sounds Like Frogs cover" loading="lazy"><figcaption>Sounds Like Frogs<a href="https://amzn.to/4hgaPIZ" rel="noopener">Amazon</a></figcaption></figure>
+        <figure><svg class="peg" viewBox="0 0 16 34" aria-hidden="true"><path d="M3 2 H13 L12 22 L10 32 H6 L4 22Z" fill="#f1a0a7" stroke="#1d1b2a" stroke-width="2" stroke-linejoin="round"/><path d="M8 8 V22" stroke="#1d1b2a" stroke-width="1.6"/></svg><img src="img/trampoline.jpg" width="560" height="840" alt="Trampoline Dreaming cover" loading="lazy"><figcaption>Trampoline Dreaming<span>A night under the wide Texas sky</span><a href="https://amzn.to/3zxLmdF" rel="noopener">Amazon</a></figcaption></figure>
+        <figure><svg class="peg" viewBox="0 0 16 34" aria-hidden="true"><path d="M3 2 H13 L12 22 L10 32 H6 L4 22Z" fill="#f1a0a7" stroke="#1d1b2a" stroke-width="2" stroke-linejoin="round"/><path d="M8 8 V22" stroke="#1d1b2a" stroke-width="1.6"/></svg><img src="img/berry.jpg" width="560" height="840" alt="Back To The Berry Beginning cover" loading="lazy"><figcaption>Back To The Berry Beginning<a href="https://amzn.to/4mL31lt" rel="noopener">Amazon</a></figcaption></figure>
+        <figure><svg class="peg" viewBox="0 0 16 34" aria-hidden="true"><path d="M3 2 H13 L12 22 L10 32 H6 L4 22Z" fill="#f1a0a7" stroke="#1d1b2a" stroke-width="2" stroke-linejoin="round"/><path d="M8 8 V22" stroke="#1d1b2a" stroke-width="1.6"/></svg><img src="img/activity.jpg" width="523" height="848" alt="Trampoline Dreaming Activity Book cover" loading="lazy"><figcaption>Trampoline Dreaming Activity Book<a href="https://amzn.to/4iz4tFX" rel="noopener">Amazon</a></figcaption></figure>
+      </div>
+    </div>
+    <p class="shelf-foot"><a class="btn alt" href="https://shellycreatesit.pages.dev/books.html" rel="noopener">See all 11 books</a></p>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div>
+      <h2>Hi, I'm Shelly, and I make things!</h2>
+      <p>I'm a self-published children's book author, illustrator and handmaker based in the heart of Texas.</p>
+      <ul class="facts">
+        <li>In 2010 she wrote and illustrated her first children's book, These White Feathers, as a college project at UTSA, where she studied special education.</li>
+        <li>After graduating she taught life skills to students with multiple and severe disabilities.</li>
+        <li>In 2021 her nephew was born, and she wrote Trampoline Dreaming for him. It is set in Leakey, Texas, where her Hill Country childhood was.</li>
+        <li>She visits schools, hosts read-alouds and stuffs envelopes for the Snail Mail Club.</li>
+      </ul>
+    </div>
+    <blockquote class="quote" style="margin-left:0;margin-right:0">
+      <q>The love of reading and learning is priceless.</q>
+      <cite>Aunt Shelly, Voyage San Antonio, October 2024</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="snail" id="snail">
+  <div class="wrap">
+    <div class="postcard" aria-hidden="true">
+      <div class="msg">A piece of happy, made just for you.</div>
+      <div class="rule"></div>
+      <div class="addr"><i></i><i></i><i></i></div>
+      <span class="st"><svg viewBox="0 0 52 62" width="52" height="62" aria-hidden="true"><defs><mask id="sm2"><rect width="52" height="62" fill="#fff"/><g fill="#000"><circle cx="2.0" cy="0.5" r="2.6"/><circle cx="2.0" cy="61.5" r="2.6"/><circle cx="10.0" cy="0.5" r="2.6"/><circle cx="10.0" cy="61.5" r="2.6"/><circle cx="18.0" cy="0.5" r="2.6"/><circle cx="18.0" cy="61.5" r="2.6"/><circle cx="26.0" cy="0.5" r="2.6"/><circle cx="26.0" cy="61.5" r="2.6"/><circle cx="34.0" cy="0.5" r="2.6"/><circle cx="34.0" cy="61.5" r="2.6"/><circle cx="42.0" cy="0.5" r="2.6"/><circle cx="42.0" cy="61.5" r="2.6"/><circle cx="50.0" cy="0.5" r="2.6"/><circle cx="50.0" cy="61.5" r="2.6"/><circle cx="0.5" cy="2.0" r="2.6"/><circle cx="51.5" cy="2.0" r="2.6"/><circle cx="0.5" cy="10.3" r="2.6"/><circle cx="51.5" cy="10.3" r="2.6"/><circle cx="0.5" cy="18.6" r="2.6"/><circle cx="51.5" cy="18.6" r="2.6"/><circle cx="0.5" cy="26.9" r="2.6"/><circle cx="51.5" cy="26.9" r="2.6"/><circle cx="0.5" cy="35.1" r="2.6"/><circle cx="51.5" cy="35.1" r="2.6"/><circle cx="0.5" cy="43.4" r="2.6"/><circle cx="51.5" cy="43.4" r="2.6"/><circle cx="0.5" cy="51.7" r="2.6"/><circle cx="51.5" cy="51.7" r="2.6"/><circle cx="0.5" cy="60.0" r="2.6"/><circle cx="51.5" cy="60.0" r="2.6"/></g></mask></defs><g mask="url(#sm2)"><rect width="52" height="62" fill="#f1a0a7"/><rect x="5" y="5" width="42" height="52" fill="#fff" stroke="#1d1b2a" stroke-width="1.6"/><path transform="translate(14.0,19.0)" d="M12 20 C4 14 1 9 3.5 5 C6 1.5 10.5 2.5 12 6.5 C13.5 2.5 18 1.5 20.5 5 C23 9 20 14 12 20Z" fill="#f1a0a7" stroke="#1d1b2a" stroke-width="1.8" stroke-linejoin="round"/></g></svg></span>
+    </div>
+    <div>
+      <h2>Shelly's Snail Mail Club</h2>
+      <p>Imagine opening your mailbox and finding a piece of happy, made just for you.</p>
+      <p>A monthly postcard subscription delivering hand-stamped mail from Aunt Shelly straight to your door.</p>
+      <p class="tiers">Monthly, quarterly or yearly.</p>
+      <div class="btns"><a class="btn" href="https://shellycreatesit.pages.dev/snail-mail.html" rel="noopener">Join the Snail Mail Club</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="events" id="events">
+  <div class="wrap">
+    <h2>Where to find Aunt Shelly</h2>
+    <p class="offers">Book fairs, festivals, school visits and library events all across Texas.</p>
+    <div class="next">
+      <div class="datebox"><span>Nov</span><b>14</b></div>
+      <div>
+        <h3>Songs on the Frio</h3>
+        <p>Saturday, 10am to 4pm. 146 US 83, Leakey, Texas.</p>
+        <p class="tie">Leakey is where Trampoline Dreaming is set.</p>
+      </div>
+    </div>
+    <p><a href="https://shellycreatesit.pages.dev/appearances.html" rel="noopener">Full events list and school visits</a></p>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <div class="heart" aria-hidden="true"><svg viewBox="0 0 150 140" width="150" height="140"><path d="M32 30 C14 44 10 70 36 96 C52 112 66 122 78 132 C98 112 134 92 138 60 C142 28 104 14 82 44 C70 26 50 18 32 30Z" fill="#f1a0a7" opacity=".6"/><path d="M26 22 C6 40 6 72 34 98 C52 116 70 128 78 136 C102 114 140 90 142 56 C142 22 100 6 76 36 C62 14 42 8 26 22Z" fill="none" stroke="#1d1b2a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h2 class="big hand">Presence, not presents.</h2>
+    <p>Thank you to every community that has welcomed Aunt Shelly.</p>
+    <a class="btn" href="https://shellycreatesit.pages.dev/#contact" rel="noopener">Book Aunt Shelly</a>
+  </div>
+</section>
+</main>
+
+<footer>A mockup made by Sparsh Saini for Shelly Kolodziejczyk. Not affiliated, not live.</footer>
+
+<script>
+(function(){
+  var stage=document.getElementById('stage'), hero=document.getElementById('top');
+  var toys=[].slice.call(stage.querySelectorAll('.toy')).map(function(el){
+    return {el:el, cx:+el.dataset.cx, cy:+el.dataset.cy, sx:+el.dataset.sx, sy:+el.dataset.sy, sr:+el.dataset.sr, ss:+el.dataset.ss, d:+el.dataset.d, arc:+el.dataset.arc};
+  });
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)');
+  var W=0,H=0,top=0,span=1,ticking=false,last=-1;
+  function measure(){var r=stage.getBoundingClientRect();W=r.width;H=r.height;top=hero.getBoundingClientRect().top+window.scrollY;span=Math.max(1,hero.offsetHeight-window.innerHeight);}
+  function ease(t){return 1-Math.pow(1-t,3)}
+  function back(t){var c=1.25;return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2)}
+  function draw(p){
+    for(var i=0;i<toys.length;i++){
+      var o=toys[i], t=Math.min(1,Math.max(0,(p-o.d)/0.36)), e=back(t), s=Math.sin(Math.PI*t);
+      var x=(o.sx-o.cx)*W*(1-e), y=(o.sy-o.cy)*H*(1-e)-o.arc*H*s;
+      var sc=(o.ss+(1-o.ss)*e)*(1+0.1*s), r=o.sr*(1-e);
+      o.el.style.transform='translate3d('+x.toFixed(1)+'px,'+y.toFixed(1)+'px,0) rotate('+r.toFixed(2)+'deg) scale('+sc.toFixed(3)+')';
+    }
+  }
+  function frame(){
+    ticking=false;
+    var p=Math.min(1,Math.max(0,(window.scrollY-top)/span));
+    p=Math.min(1,p/0.97);
+    if(p!==last){last=p;draw(p)}
+  }
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+  function init(){
+    if(rm.matches){draw(1);return}
+    measure();frame();
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',function(){measure();last=-1;onScroll()});
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){measure();last=-1;onScroll()});
+  }
+  if(document.readyState==='complete')init();else window.addEventListener('load',init);
+  var b=document.getElementById('stampBtn'), m=document.getElementById('cardMenu');
+  function set(o){b.setAttribute('aria-expanded',o);m.hidden=!o}
+  b.addEventListener('click',function(){set(b.getAttribute('aria-expanded')!=='true')});
+  m.addEventListener('click',function(e){if(e.target.tagName==='A')set(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+})();
+</script>
+</body>
+</html>
